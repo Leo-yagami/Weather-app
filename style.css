@@ -1,0 +1,12 @@
+body {
+  height: 100vh;
+  background: linear-gradient(to top left, #28b487, #7dd56f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: 96px;
+  font-family: sans-serif;
+  color: antiquewhite;
+}
