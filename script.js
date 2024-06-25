@@ -1,39 +1,3 @@
-// "use strict";
-
-// // Checking if the user wants to use his own location
-// let useLocation = prompt(
-//   "Do you want to use your own location for the forecast(y/n):"
-// );
-
-// let response;
-// const getLatLon = function (userLocation) {
-//   if (userLocation.toLowerCase() === "y") {
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(
-//         (position) => {
-//           const { latitude: lat } = position.coords;
-//           const { longitude: long } = position.coords;
-//           // Mistake: you forgot to put the question mark after 'forecast'
-//           const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}`;
-//           fetch(url)
-//             .then((response) => {
-//               // manaully checking for error(404...)
-//               if (!response.ok) throw new Error("Network response wasn't ok");
-//               // Mistake: you forgot to return response.json()
-//               return response.json();
-//             })
-//             .then((data) => console.log(data))
-//             .catch((err) => console.log(err.message));
-//         },
-//         () => {
-//           console.log("Couldn't get your location");
-//         }
-//       );
-//     }
-//   }
-// };
-// getLatLon(useLocation);
-
 "use strict";
 
 // Checking if the user wants to use his own location
@@ -47,15 +11,15 @@ const getLatLon = function (userLocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude: lat, longitude: long } = position.coords;
-          const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_min,temperature_2m_max,precipitation_sum,wind_speed_10m_max,humidty_2m_min,humidity_2m_max,uv_index_max,sunrise,sunset,apparent_temperature_max, apparent_temperature_min&current_weather=true`;
+          const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_min,temperature_2m_max,precipitation_sum,wind_speed_10m_max,uv_index_max,sunrise,sunset,apparent_temperature_max,apparent_temperature_min&current_weather=true`;
 
           const locationUrl = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${long}&format=json`;
 
           fetch(url)
             .then((response) => {
-              if (!response.ok) {
-                throw new Error("Network response was not ok");
-              }
+              // if (!response.ok) {
+              //   throw new Error("Network response was not ok");
+              // }
               return response.json();
             })
             .then((data) => {
@@ -90,3 +54,43 @@ const getLatLon = function (userLocation) {
 };
 
 getLatLon(useLocation);
+
+// "use strict";
+
+// let useLocation = prompt(
+//   "Do you want to use your own location for the forecast (y/n):"
+// );
+
+// const getLatLon = function (userLocation) {
+//   if (userLocation.toLowerCase() === "y") {
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//           const { latitude: lat, longitude: long } = position.coords;
+//           const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_min,temperature_2m_max,precipitation_sum,wind_speed_10m_max,uv_index_max,sunrise,sunset,apparent_temperature_max,apparent_temperature_min&current_weather=true`;
+
+//           fetch(url)
+//             .then((response) => {
+//               if (!response.ok) {
+//                 throw new Error("Network response was not ok");
+//               }
+//               return response.json();
+//             })
+//             .then((data) => {
+//               console.log("Weather Forecast Data:", data); // Log the forecast data
+//             })
+//             .catch((err) => console.error("Fetch error:", err));
+//         },
+//         (error) => {
+//           console.error("Error getting location:", error);
+//         }
+//       );
+//     } else {
+//       console.log("Geolocation is not supported by this browser");
+//     }
+//   } else {
+//     console.log("User opted not to use location");
+//   }
+// };
+
+// getLatLon(useLocation);
