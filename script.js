@@ -1,9 +1,9 @@
 "use strict";
 
 // Checking if the user wants to use his own location
-let useLocation = prompt(
-  "Do you want to use your own location for the forecast (y/n):"
-);
+// let useLocation = prompt(
+//   "Do you want to use your own location for the forecast (y/n):"
+// );
 
 const getLatLon = function (userLocation) {
   if (userLocation.toLowerCase() === "y") {
