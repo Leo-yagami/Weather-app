@@ -1,12 +1,19 @@
 "use strict";
 
+// initialzing varaible that stores location preference
+let useLocation = false;
+
+// Adding DOM elements
+const locationBtn = document.addEventListener("click", (event) => {
+  //indicating that the user wants to fetch his weather data using his own location
+  useLocation = "y";
+  getLatLon(useLocation);
+});
+
 // Checking if the user wants to use his own location
-// let useLocation = prompt(
-//   "Do you want to use your own location for the forecast (y/n):"
-// );
 
 const getLatLon = function (userLocation) {
-  if (userLocation.toLowerCase() === "y") {
+  if (userLocation === "y") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -52,8 +59,6 @@ const getLatLon = function (userLocation) {
     console.log("User opted not to use location");
   }
 };
-
-getLatLon(useLocation);
 
 // "use strict";
 
