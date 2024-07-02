@@ -6,9 +6,6 @@ body {
   position: relative;
 }
 
-form {
-}
-
 #form_input--city {
   border: 0.4rem solid #133d3d;
   background-color: transparent;
@@ -22,7 +19,16 @@ form {
 }
 
 .icon {
-  color: white;
-  height: 100px;
-  width: 100px;
+  display: inline-block;
+  font-size: 50px;
+  color: #133d3d;
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  cursor: pointer;
+  transition: all 500ms;
+}
+
+.icon:hover {
+  color: #7dd1c6;
 }
