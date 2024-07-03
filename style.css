@@ -92,5 +92,6 @@ header {
 .secondary_btn:hover {
   border: none;
   background-color: #133d3d;
+  text-decoration: underline;
   color: #ededed;
 }
