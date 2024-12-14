@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #0c2426;
+}
+
+.first-half {
+  margin-top: 4rem;
+  /* background-color: #999999;remn */
+  width: 30vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* align-items: center; */
+  margin-left: 2rem;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  align-self: flex-start;
+}
+.main-board {
+  background-color: #133d3d;
+  height: 45%;
+  width: 80%;
+
+  /* margin: 0 1rem; */
+  border-radius: 1rem;
+}
+
+.seven-days-board {
+  background-color: #133d3d;
+  height: 45%;
+  width: 80%;
+
+  /* margin: 0 1rem; */
+  border-radius: 1rem;
+}
