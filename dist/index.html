@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- linking css file -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="output.css">
+    <!-- Importing font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Installing ionicons -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://unpkg.com/ionicons@latest/dist/ionicons.min.css"
+    /> -->
+  </head>
+  <body>
+    <header>
+      <figure class="logo_container">
+        <img
+          class="logo"
+          src="./Design Process/Screenshot 2024-06-26 201818.png"
+          alt="weatherly logo"
+        />
+      </figure>
+    </header>
+    <main class="main_container bg-transparent">
+      <h1 class="main_heading">I'm Weatherly</h1>
+      <p class="main_description">Your sleek and minimal weather app</p>
+      <div class="btns">
+        <button
+          class="primary_btn"
+          onclick="window.location.href='dashboard.html'"
+        >
+          Use your location
+        </button>
+        <button
+          class="secondary_btn"
+          onclick="window.location.href='search.html'"
+        >
+          Search
+        </button>
+      </div>
+    </main>
+    <script>
+      let latitude, longitude;
+      let key = "AIzaSyBRc9CLCshniVFwoNsJivySl14RKCrJzJ0";
+      function getLatLon(){
+        if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition((position)=>{
+            // console.log(position);                                                                                                                                                                                    
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+             latitude = position.coords.latitude; 
+             longitude = position.coords.longitude;
+          },
+          (error) => {
+    console.error("Error fetching location:", error.message);
+  }
+        );
+        }
+        else {
+          alert("The geolocation process wasn't successful");
+        }
+      }
+      
+      function getCityName(latitude, longitude, key){
+        let obj;
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${key}`;
+        fetch(url)
+        .then(response => {
+          if(!response.ok)
+          throw new Error("Network response wasn't ok");
+        return response.json();
+      })
+      .then(data => {
+        console.log(data)
+        obj = data;
+      })
+      .catch(err => console.log(err.message));
+      // console.log(obj);
+      return obj;
+    }
+    
+    // console.log(obj);
+    let weatherData;
+    function getWeatherNameObj(obj){
+      const url = "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}";
+      fetch(url)
+      .then(response => {
+        if(!response.ok)
+        throw new Error("Network response wasn't ok");
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      weatherData = data;
+    })
+    .catch(err => console.log(err.message))
+  }
+      getLatLon();
+      obj = getCityName(latitude, longitude, key);
+      weatherData = getWeatherNameObj(obj);
+      // console.log(weatherData);
+    </script>
+  </body>
+</html>

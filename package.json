@@ -1,0 +1,15 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather-app using vanilla Javascript, HTML, and CSS",
+  "main": "script.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.16"
+  }
+}

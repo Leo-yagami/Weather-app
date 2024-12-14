@@ -1,8 +1,0 @@
-// To make our local server secure(HTTPS)
-{
-  "liveServer.settings.https": {
-    "enable": true,
-    "cert": "path/to/your/certificate.pem",
-    "key": "path/to/your/private.key.pem"
-  }
-}

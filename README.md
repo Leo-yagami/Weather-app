@@ -1,2 +1,2 @@
 # Weather-app
- Weather-app using vanilla Javascript, HTML, and CSS
+ Weather-app using vanilla Javascript, HTML, and CSS(Tailwind)
