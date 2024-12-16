@@ -50,27 +50,65 @@
       </div>
     </main>
     <script>
+      // GETTING THE LATITUDE AND LONGITUDE VALUES FROM API
       let latitude, longitude;
       let key = "AIzaSyBRc9CLCshniVFwoNsJivySl14RKCrJzJ0";
-      function getLatLon(){
-        if(navigator.geolocation){
-          navigator.geolocation.getCurrentPosition((position)=>{
-            // console.log(position);                                                                                                                                                                                    
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-             latitude = position.coords.latitude; 
-             longitude = position.coords.longitude;
-          },
-          (error) => {
-    console.error("Error fetching location:", error.message);
-  }
-        );
-        }
-        else {
-          alert("The geolocation process wasn't successful");
+      // function getLatLon(){
+      //   if(navigator.geolocation){
+      //     console.log("we can do geolocation")
+      //     navigator.geolocation.getCurrentPosition((position)=>{
+      //       console.log(position);
+      //        latitude = position.coords.latitude; 
+      //        longitude = position.coords.longitude;
+      //       //  getCityName(latitude, longitude, key);
+      //     },
+      //     (error) => {
+      //     console.error("NIGGA WE CAN'T:", error.message);
+      //     }
+      //   );
+      //   }
+      //   else {
+      //     alert("The geolocation process wasn't successful");
+      //   }
+      // }
+      // console.log(latitude, longitude)
+      //calling the first method 
+      function getLatLon() {
+        if (navigator.geolocation) {
+          console.log("Geolocation is supported.");
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              console.log("Position obtained successfully:", position);
+              latitude = position.coords.latitude;
+              longitude = position.coords.longitude;
+              console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+              getCityName(latitude, longitude, key)
+            },
+            (error) => {
+              // Improved error messages based on error codes
+              // switch (error.code) {
+              //   case error.PERMISSION_DENIED:
+              //     console.error("Permission denied by the user.");
+              //     break;
+              //   case error.POSITION_UNAVAILABLE:
+              //     console.error("Position unavailable.");
+              //     break;
+              //   case error.TIMEOUT:
+              //     console.error("Request timed out.");
+              //     break;
+              //   default:
+              //     console.error("An unknown error occurred:", error.message);
+              // }
+              console.log(error.message)
+            }
+          );
+        } else {
+          alert("Geolocation is not supported by your browser.");
         }
       }
-      
+      // getLatLon();
+
+      // Getting the city using reverse geocoding
       function getCityName(latitude, longitude, key){
         let obj;
         const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${key}`;
@@ -86,10 +124,9 @@
       })
       .catch(err => console.log(err.message));
       // console.log(obj);
-      return obj;
     }
     
-    // console.log(obj);
+  //   // Getting the weather object from openweather
     let weatherData;
     function getWeatherNameObj(obj){
       const url = "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}";
@@ -102,12 +139,13 @@
     .then(data => {
       console.log(data);
       weatherData = data;
+      // Extracting data from object
     })
     .catch(err => console.log(err.message))
   }
-      getLatLon();
-      obj = getCityName(latitude, longitude, key);
-      weatherData = getWeatherNameObj(obj);
+      // calling the second method and checking if it returns a city name obj
+      // obj = getCityName(latitude, longitude, key);
+      // weatherData = getWeatherNameObj(obj);
       // console.log(weatherData);
     </script>
   </body>

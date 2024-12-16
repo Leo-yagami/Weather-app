@@ -4,17 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="output.css">
     <link />
+    <!-- link to icons -->
     <title>Weather DashBoard</title>
   </head>
   <body>
-    <div class="dashboard">
-      <div class="first-half">
-        <div class="main-board"></div>
-        <h1 class="5-days">5 Day Forecast</h1>
-        <div class="seven-days-board"></div>
-      </div>
-    </div>
-    <script src="./script.js"></script>
-  </body>
+    <!-- navigation section -->
+    <header>
+      <nav class="flex justify-between items-center px-6 pt-4">
+        <!-- logo on the left -->
+        <img src="./Design Process/Screenshot 2024-06-26 201818.png" alt="" class="w-80 -mx-2">
+        <!-- search bar in the center -->
+
+         <label for="searchbar" class="bg-[#133d3d] py-3 pl-5 pr-24 rounded-3xl">
+          
+           <input type="text" id="searchbar" placeholder="Search city" class="bg-transparent w-54 outline-none text-white">
+         </label>
+         <!-- current location button on the right -->
+          <button class="px-5 py-3 bg-[#B6A0E6] text-[#221340] rounded-3xl "><span>
+            <img href="./Design Process/icons8-my-location-50.png" class="inline-block size-8"></a>
+          </span>Current Location</button>
+      </nav>
+    </header>
+    <main class="">
+      <!-- SIDE SECTION -->
+       <section class="flex flex-col justify-center items-start mt-12">
+           <!-- Current weather card -->
+            <div class="p-8 text-white
+            -2 bg-[#133d3d] mx-6 ml-8 rounded-3xl">
+                <!-- we will have the time, degree, and weather description on one div and the weather icon on another -->
+                <div class="flex gap-10 items-center justify-center">
+                  <div class="flex flex-col gap-2">
+                    <h2 class="text-white text-md font-bold">Now</h2>
+                    <h1 class="text-white text-7xl font-normal">5c</h1>
+                    <p class="text-white font-normal mt-4 mb-3">Broken Clouds</p>
+                  </div>
+                  <!-- icon section -->
+                  <div>
+                    <img src="./Design Process/cloudy.png" alt="" class="inline-block w-24 mr-6">
+                  </div>
+                </div>
+                <div class="w-full bg-white h-px"></div>
+                 <div class="flex flex-col gap-1">
+                    <p class="mt-3"><span></span>Wednesday 1, Mar</p>
+                    <p ><span></span>London, GB</p>
+                 </div>
+            </div>
+       </section>
+    </main>
+  </body> 
 </html>
