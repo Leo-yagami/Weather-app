@@ -17,22 +17,25 @@
         <img src="./Design Process/Screenshot 2024-06-26 201818.png" alt="" class="w-80 -mx-2">
         <!-- search bar in the center -->
 
-         <label for="searchbar" class="bg-[#133d3d] py-3 pl-5 pr-24 rounded-3xl">
-          
-           <input type="text" id="searchbar" placeholder="Search city" class="bg-transparent w-54 outline-none text-white">
+         <label for="searchbar" class="bg-[#133d3d] py-3 pl-5 pr-24 rounded-3xl flex justify-center items-center gap-3">
+          <svg height="24" class="fill-white opacity-80" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h24v24h-24z" fill="none"/><path d="m15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0s.41-1.08 0-1.49zm-6 0c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+          <input type="text" id="searchbar" placeholder="Search city" class="bg-transparent w-54 outline-none placeholder:text-lg text-white">
          </label>
          <!-- current location button on the right -->
-          <button class="px-5 py-3 bg-[#B6A0E6] text-[#221340] rounded-3xl "><span>
-            <img href="./Design Process/icons8-my-location-50.png" class="inline-block size-8"></a>
-          </span>Current Location</button>
+          <button class="px-4 py-3 bg-[#B6A0E6] font-medium text-[#221340] rounded-3xl flex justify-center items-center gap-3">
+            <span>
+                <img src="./Design Process/current-location.svg" alt="">
+            </span>
+            Current Location
+          </button>
       </nav>
     </header>
-    <main class="">
+    <main class="flex gap-12">
       <!-- SIDE SECTION -->
-       <section class="flex flex-col justify-center items-start mt-12">
+       <section class="flex flex-col justify-center items-start mt-12 ml-8">
            <!-- Current weather card -->
             <div class="p-8 text-white
-            -2 bg-[#133d3d] mx-6 ml-8 rounded-3xl">
+            -2 bg-[#133d3d]  rounded-3xl">
                 <!-- we will have the time, degree, and weather description on one div and the weather icon on another -->
                 <div class="flex gap-10 items-center justify-center">
                   <div class="flex flex-col gap-2">
@@ -51,6 +54,170 @@
                     <p ><span></span>London, GB</p>
                  </div>
             </div>
+
+            <!-- Text separator -->
+             <h3 class="text-xl font-bold text-white mb-3 mt-4">5 Days Forecast</h3>
+            <!-- 5 Days Forcast card -->
+             
+            <div class="px-8 py-6 text-white
+            -2 bg-[#133d3d] rounded-3xl">
+                <!-- we will have 5 instances of an icon(weather), degree date and week day all in flex with good spacing between each-->
+
+
+                 <!-- FIRST DAY -->
+                  <!-- //////////////////////////// -->
+                 <div class="flex flex-col gap-1">
+                   <div class="flex items-center ">
+                    <!-- Weather icon and degree -->
+                     <div class="mr-14 -ml-3 flex items-center justify-center">
+                      <img src="./Design Process/weather-icons-main/original/static/clear-night.svg" class="w-14" alt="">
+                      <p class="text-2xl font-bold">7°</p>
+                     </div>
+                     <p class="mr-8 font-bold  text-[#6d8585]">2 Mar</p>
+                     <p class="font-bold text-[#6d8585] text-right">Thursday</p>
+                   </div>
+                   <!-- ///////////////////////////// -->
+
+                   <!-- SECOND DAY -->
+                    <!-- ///////////////////////////////// -->
+                   <div class="flex items-center ">
+                    <!-- Weather icon and degree -->
+                     <div class="mr-14 -ml-3 flex items-center justify-center">
+                      <img src="./Design Process/weather-icons-main/original/static/clear-night.svg" class="w-14" alt="">
+                      <p class="text-2xl font-bold">7°</p>
+                     </div>
+                     <p class="mr-8 font-bold  text-[#6d8585]">3 Mar</p>
+                     <p class="font-bold text-[#6d8585] text-right">Friday</p>
+                   </div>
+                   <!-- ///////////////////////////////// -->
+
+                   <!-- THIRD DAY -->
+                    <!-- /////////////////////////////// -->
+                   <div class="flex items-center ">
+                    <!-- Weather icon and degree -->
+                     <div class="mr-14 -ml-3 flex items-center justify-center">
+                      <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="w-14" alt="">
+                      <p class="text-2xl font-bold">7°</p>
+                     </div>
+                     <p class="mr-8 font-bold  text-[#6d8585]">4 Mar</p>
+                     <p class="font-bold text-[#6d8585] text-right">Saturday</p>
+                   </div>
+                   <!-- //////////////////////////////// -->
+
+                   <!-- FOURTH DAY -->
+                   <div class="flex items-center ">
+                    <!-- Weather icon and degree -->
+                     <div class="mr-14 -ml-3 flex items-center justify-center">
+                      <img src="./Design Process/weather-icons-main/original/static/rainy-1-night.svg" class="w-14" alt="">
+                      <p class="text-2xl font-bold">7°</p>
+                     </div>
+                     <p class="mr-8 font-bold  text-[#6d8585]">5 Mar</p>
+                     <p class="font-bold text-[#6d8585] text-right">Sunday</p>
+                   </div>
+                   <!-- ///////////////////////////////// -->
+
+                   <!-- FIFTH DAY -->
+                    <!-- /////////////////////////////// -->
+                   <div class="flex items-center ">
+                    <!-- Weather icon and degree -->
+                     <div class="mr-14 -ml-3 flex items-center justify-center">
+                      <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="w-14" alt="">
+                      <p class="text-2xl font-bold">7°</p>
+                     </div>
+                     <p class="mr-8 font-bold  text-[#6d8585]">6 Mar</p>
+                     <p class="font-bold text-[#6d8585] text-right">Monday</p>
+                   </div>
+                   <!-- //////////////////////////////////// -->
+                 </div>
+            </div>
+       </section>
+       <section class="mt-10">
+        <!-- Todays Highlights section -->
+         <!-- Today at section -->
+         <h3 class="text-xl font-bold text-white mb-3 mt-4">Today at</h3>
+         <div class="grid grid-cols-8 grid-rows-2 gap-4">
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+          <div class="bg-[#133d3d] px-6 py-4 rounded-3xl flex flex-col items-center gap-2 justify-center">
+            <p class="font-bold text-[#6d8585]">9 PM</p>
+            <img src="./Design Process/weather-icons-main/original/static/cloudy.svg" class="max-w-20 -mt-4" alt="">
+            <p class="font-bold text-[#6d8585]">5°</p>
+          </div>
+         </div>
+
        </section>
     </main>
   </body> 
