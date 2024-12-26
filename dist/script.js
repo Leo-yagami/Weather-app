@@ -64,17 +64,92 @@
 
 // Re-implementation
 // const latitude = null,longitude = null;
-// function getLatLon(){
-//   if(navigator.geolocation){
-//     navigator.geolocation.getCurrentPosition((position)=>{
-//       console.log(position.coords.latitude);
-//       console.log(position.coords.latitude);
-//     });
-//   }
-//   else {
-//     alert("The geolocation process wasn't successful");
-//   }
-// }
+// let latitude;
+// let longitude;
 
-// console.log(latitude, longitude);
-console.log("Script chained")
+// async function getLatLon() {
+//     return new Promise((resolve, reject) => {
+//         if (navigator.geolocation) {
+//             navigator.geolocation.getCurrentPosition((position) => {
+//                 latitude = position.coords.latitude;
+//                 longitude = position.coords.longitude;
+//                 resolve({ latitude, longitude });
+//             }, (error) => {
+//                 reject("Geolocation error: " + error.message);
+//             });
+//         } else {
+//             reject("Geolocation is not supported by this browser.");
+//         }
+//     });
+// }
+// // Usage
+// (async () => {
+//     try {
+//         coords = await getLatLon();
+//         console.log("Latitude:", coords.latitude);
+//         console.log("Longitude:", coords.longitude);
+//     } catch (error) {
+//         alert(error);
+//     }
+// })();
+
+// // console.log(latitude, longitude);
+// console.log("Script chained")
+
+let latitude;
+let longitude;
+
+function getLatLon(callback) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            callback(latitude, longitude);
+        }, (error) => {
+            alert("Geolocation error: " + error.message);
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function getAddress(lat, lon, callback) {
+    const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.display_name) {
+                console.log("Address:", data.address.country);
+                console.log("Address:", data);
+                callback(data.address.country);
+            } else {
+                console.error("No address found");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+}
+
+function getWeather(city) {
+    const apiKey = 'YOUR_OPENWEATHER_API_KEY'; // Replace with your OpenWeather API key
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        if(data.main){
+            console.log(`Weather in ${city}: ${data.main.temp}°C, ${data.weather[0].description}`);
+        }
+        else {
+            console.error("No weather data found")
+        }
+    })
+    .catch(error => console.error("Error: ", error));
+}
+
+// Usage
+getLatLon((lat, lon) => {
+    console.log("Latitude:", lat);
+    console.log("Longitude:", lon);
+    getAddress(lat, lon, (city)=>getWeather(city)); // Call the reverse geocoding function
+});
