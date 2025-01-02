@@ -234,6 +234,22 @@ getCity().then(position => {
             obj["time_h_14"] = calcClockHour(data.list[13].dt);
             obj["time_h_15"] = calcClockHour(data.list[14].dt);
             obj["time_h_16"] = calcClockHour(data.list[15].dt);
+            obj["icon_h_1"] = `./Design Process/images/${data.list[0].weather[0].icon}_t.png`
+            obj["icon_h_2"] = `./Design Process/images/${data.list[1].weather[0].icon}_t.png`
+            obj["icon_h_3"] = `./Design Process/images/${data.list[2].weather[0].icon}_t.png`
+            obj["icon_h_4"] = `./Design Process/images/${data.list[3].weather[0].icon}_t.png`
+            obj["icon_h_5"] = `./Design Process/images/${data.list[4].weather[0].icon}_t.png`
+            obj["icon_h_6"] = `./Design Process/images/${data.list[5].weather[0].icon}_t.png`
+            obj["icon_h_7"] = `./Design Process/images/${data.list[6].weather[0].icon}_t.png`
+            obj["icon_h_8"] = `./Design Process/images/${data.list[7].weather[0].icon}_t.png`
+            obj["icon_h_9"] = `./Design Process/images/${data.list[8].weather[0].icon}_t.png`
+            obj["icon_h_10"] = `./Design Process/images/${data.list[9].weather[0].icon}_t.png`
+            obj["icon_h_11"] = `./Design Process/images/${data.list[10].weather[0].icon}_t.png`
+            obj["icon_h_12"] = `./Design Process/images/${data.list[11].weather[0].icon}_t.png`
+            obj["icon_h_13"] = `./Design Process/images/${data.list[12].weather[0].icon}_t.png`
+            obj["icon_h_14"] = `./Design Process/images/${data.list[13].weather[0].icon}_t.png`
+            obj["icon_h_15"] = `./Design Process/images/${data.list[14].weather[0].icon}_t.png`
+            obj["icon_h_16"] = `./Design Process/images/${data.list[15].weather[0].icon}_t.png`
         })
     const aqURL = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat.toFixed(2)}&longitude=${long.toFixed(2)}&hourly=pm2_5,nitrogen_dioxide,sulphur_dioxide,ozone&forecast_days=1`;
     fetch(aqURL)
@@ -241,6 +257,10 @@ getCity().then(position => {
     .then(data => {
         console.log("///////////////////////AIR QUALITY INDEX")
         console.log(data)
+        obj["pm25"] = data.hourly.pm2_5[0];
+        obj["no2"] = data.hourly.nitrogen_dioxide[0];
+        obj["so2"] = data.hourly.sulphur_dioxide[0];
+        obj["o3"] = data.hourly.ozone[0];
     })
 
 })
